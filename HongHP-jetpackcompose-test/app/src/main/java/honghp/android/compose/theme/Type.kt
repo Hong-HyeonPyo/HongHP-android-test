@@ -1,4 +1,4 @@
-package rocklike.compose.ui.theme
+package honghp.android.compose.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

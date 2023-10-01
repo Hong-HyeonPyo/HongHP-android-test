@@ -1,4 +1,4 @@
-package rocklike.compose
+package honghp.android.compose
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,8 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import rocklike.android.material3navigation.Main
-import rocklike.compose.ui.theme.HongJetpack2Theme
+import honghp.android.compose.material3.Main
+import honghp.android.compose.theme.HongJetpack2Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(

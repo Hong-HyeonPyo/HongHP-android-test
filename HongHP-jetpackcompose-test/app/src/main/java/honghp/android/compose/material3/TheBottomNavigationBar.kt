@@ -1,4 +1,4 @@
-package rocklike.android.material3navigation
+package honghp.android.compose.material3
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -19,7 +19,8 @@ fun BottomNavigationBar(
     navController: NavHostController, state: MutableState<Boolean>, modifier: Modifier = Modifier
 ) {
     val screens = listOf(
-        ContentsMapper.HomeScreen, ContentsMapper.Favourite, ContentsMapper.Notification,ContentsMapper.Screen2
+        ContentsMapper.HomeScreen, ContentsMapper.Favourite, ContentsMapper.Notification,
+        ContentsMapper.Screen2
     )
     NavigationBar(
         modifier = modifier,
@@ -52,5 +53,4 @@ fun BottomNavigationBar(
             )
         }
     }
-
 }

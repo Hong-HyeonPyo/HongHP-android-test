@@ -1,7 +1,9 @@
-package rocklike.android.material3navigation
+package honghp.android.compose.material3
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.AccountCircle
 import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material.icons.outlined.ExitToApp
 import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Notifications
@@ -25,11 +27,11 @@ sealed class ContentsMapper(
     object Notification : ContentsMapper(
         route = "notification_screen",
         title = "Notification",
-        icon = Icons.Outlined.Notifications
+        icon = Icons.Outlined.ExitToApp
     )
     object Screen2 : ContentsMapper(
         route = "cat_screen",
         title = "고양이",
-        icon = Icons.Outlined.Add
+        icon = Icons.Outlined.AccountCircle
     )
 }

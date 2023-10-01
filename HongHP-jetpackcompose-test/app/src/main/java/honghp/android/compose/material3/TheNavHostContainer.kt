@@ -1,4 +1,4 @@
-package rocklike.android.material3navigation
+package honghp.android.compose.material3
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -16,7 +16,7 @@ fun NavHostContainer(navController: NavHostController) {
         }
 //        composable(ContentsMapper.Notification.route) {
         composable("notification_screen") {
-            NotificationScreen()
+            rPtksrl()
         }
         composable("cat_screen") {
             CatScreen()

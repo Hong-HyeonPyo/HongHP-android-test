@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "HongHP.jetpackcompose"
+    namespace = "honghp.android.compose"
     compileSdk = 33
 
     defaultConfig {
