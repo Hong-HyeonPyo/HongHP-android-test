@@ -21,12 +21,12 @@ sealed class ContentsMapper(
     )
     object Favourite : ContentsMapper(
         route = "favourite_screen",
-        title = "Favorite",
+        title = "날씨",
         icon = Icons.Outlined.Favorite
     )
     object Notification : ContentsMapper(
         route = "notification_screen",
-        title = "Notification",
+        title = "계산기",
         icon = Icons.Outlined.ExitToApp
     )
     object Screen2 : ContentsMapper(

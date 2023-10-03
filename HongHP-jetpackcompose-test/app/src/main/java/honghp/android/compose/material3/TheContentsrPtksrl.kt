@@ -1,6 +1,7 @@
 package honghp.android.compose.material3
 
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -31,6 +33,7 @@ import androidx.compose.ui.unit.sp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun rPtksrl() {
+    val context = LocalContext.current
     var text by remember { mutableStateOf("2") }
     var text2 by remember { mutableStateOf("5") }
     Log.d("홍", text.toString())
@@ -73,6 +76,7 @@ fun rPtksrl() {
         }
         Row {
             Button(onClick = {
+                Toast.makeText(context,"곱하기 버튼 클릭됨",Toast.LENGTH_SHORT)
                 value = text.toInt() * text2.toInt()
                 Rvalue.value = value.toString()
                 Log.d("홍", value.toString())
