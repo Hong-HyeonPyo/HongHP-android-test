@@ -38,7 +38,7 @@ fun rPtksrl() {
     var text2 by remember { mutableStateOf("5") }
     Log.d("홍", text.toString())
     Log.d("홍", text2.toString())
-    var value = remember { text.toInt() * text2.toInt() }
+    var value: Long = remember { text.toLong() * text2.toLong() }
     var Rvalue = remember { mutableStateOf(value.toString()) }
     Log.d("홍", value.toString())
     Log.d("홍", "E")
@@ -76,38 +76,38 @@ fun rPtksrl() {
         }
         Row {
             Button(onClick = {
-                Toast.makeText(context,"곱하기 버튼 클릭됨",Toast.LENGTH_SHORT)
-                value = text.toInt() * text2.toInt()
+                Toast.makeText(context, "곱하기 버튼 클릭됨", Toast.LENGTH_SHORT)
+                value = text.toLong() * text2.toLong()
                 Rvalue.value = value.toString()
                 Log.d("홍", value.toString())
             }) {
                 Text(text = "곱하기")
             }
             Button(onClick = {
-                value = text.toInt() / text2.toInt()
+                value = text.toLong() / text2.toLong()
                 Rvalue.value = value.toString()
                 Log.d("홍", value.toString())
             }) {
                 Text(text = "나누기")
             }
             Button(onClick = {
-                value = text.toInt() + text2.toInt()
+                value = text.toLong() + text2.toLong()
                 Rvalue.value = value.toString()
                 Log.d("홍", value.toString())
             }) {
                 Text(text = "더하기")
             }
             Button(onClick = {
-                value = text.toInt() - text2.toInt()
+                value = text.toLong() - text2.toLong()
                 Rvalue.value = value.toString()
                 Log.d("홍", value.toString())
             }) {
                 Text(text = "빼기")
             }
         }
-
-        Text(text = Rvalue.value, fontSize = 20.sp, color = Color.Blue,
-            textAlign = TextAlign.Center)
-
+        Text(
+            text = Rvalue.value, fontSize = 20.sp, color = Color.Blue,
+            textAlign = TextAlign.Center
+        )
     }
 }

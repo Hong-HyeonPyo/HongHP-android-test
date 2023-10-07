@@ -11,7 +11,7 @@ fun NavHostContainer(navController: NavHostController) {
         composable(ContentsMapper.HomeScreen.route) {
             HomeScreen()
         }
-        composable(ContentsMapper.Favourite.route) {
+        composable(ContentsMapper.Weather.route) {
             FavouriteScreen()
         }
 //        composable(ContentsMapper.Notification.route) {

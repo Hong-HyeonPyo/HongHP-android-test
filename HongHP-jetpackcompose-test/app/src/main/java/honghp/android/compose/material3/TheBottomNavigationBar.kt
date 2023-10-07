@@ -19,7 +19,7 @@ fun BottomNavigationBar(
     navController: NavHostController, state: MutableState<Boolean>, modifier: Modifier = Modifier
 ) {
     val screens = listOf(
-        ContentsMapper.HomeScreen, ContentsMapper.Favourite, ContentsMapper.Notification,
+        ContentsMapper.HomeScreen, ContentsMapper.Weather, ContentsMapper.Notification,
         ContentsMapper.Screen2
     )
     NavigationBar(

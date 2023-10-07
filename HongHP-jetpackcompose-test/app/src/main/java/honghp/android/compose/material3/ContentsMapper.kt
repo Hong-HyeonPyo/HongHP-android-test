@@ -2,11 +2,12 @@ package honghp.android.compose.material3
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.AccountCircle
-import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material.icons.outlined.Create
+import androidx.compose.material.icons.outlined.DateRange
 import androidx.compose.material.icons.outlined.ExitToApp
+import androidx.compose.material.icons.outlined.Face
 import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class ContentsMapper(
@@ -19,19 +20,19 @@ sealed class ContentsMapper(
         title = "Home",
         icon = Icons.Outlined.Home
     )
-    object Favourite : ContentsMapper(
+    object Weather : ContentsMapper(
         route = "favourite_screen",
         title = "날씨",
-        icon = Icons.Outlined.Favorite
+        icon = Icons.Outlined.DateRange
     )
     object Notification : ContentsMapper(
         route = "notification_screen",
         title = "계산기",
-        icon = Icons.Outlined.ExitToApp
+        icon = Icons.Outlined.Create
     )
     object Screen2 : ContentsMapper(
         route = "cat_screen",
         title = "고양이",
-        icon = Icons.Outlined.AccountCircle
+        icon = Icons.Outlined.Face
     )
 }

@@ -67,12 +67,12 @@ data class Weather(
 //하늘상태(SKY) 코드 : 맑음(1), 구름많음(3), 흐림(4)
 @Composable
 fun FavouriteScreen() {
+    val context = LocalContext.current
     var lst = remember { mutableStateListOf<Weather>() }
     var lstSiz = remember { mutableIntStateOf(lst.size) }
+    var dummy = remember { mutableStateOf(callWeatherApi(lst)) }
 
-    val context = LocalContext.current
-
-//    Toast.makeText(context, "불러오는중", Toast.LENGTH_SHORT)
+    Toast.makeText(context, "불러오는중", Toast.LENGTH_SHORT).show()
 //    Log.i("홍", "불러오는 중")
 
 //    callWeatherApi(lst)
@@ -90,47 +90,19 @@ fun FavouriteScreen() {
             .wrapContentSize(Alignment.Center)
     ) {
         var sunImg = painterResource(R.drawable.sun)
-        var nomalSunImg = painterResource(R.drawable.nosun)
-        var noSunImg = painterResource(R.drawable.gmfla)
+        var cloudImg = painterResource(R.drawable.cloud)
+        var veryCloud = painterResource(R.drawable.gmfla)
         Row {
             Button(onClick = {
-                Toast.makeText(context, "버튼 클릭됨", Toast.LENGTH_SHORT)
+                Toast.makeText(context, "호출 시작.", Toast.LENGTH_SHORT).show()
                 Log.i("홍", "버튼 클릭함. $context")
                 lst.clear()
                 callWeatherApi(lst)
-//            requestWeatherApi { success, r, ex ->
-//                Log.d("홍", "$success ${r} ${r?.response?.body?.items?.item?.size} $ex")
-//                lst.clear()
-//                val items = r?.response?.body?.items?.item;
-//                val list2 = items?.filter { it.category == "TMP" }
-//                    ?.map {
-//                        val fcstDate = it.fcstDate
-//                        val fcstTime = it.fcstTime
-//
-//                        var first = items.filter { elem -> elem.category == "SKY" }
-//                            .filter { elem -> elem.fcstDate == fcstDate && elem.fcstTime == fcstTime }
-//                            .map { elem -> elem.fcstValue }
-//                            .firstOrNull() ?: ""
-//                        Weather(
-//                            fcstDate,
-//                            fcstTime,
-//                            it.fcstValue.toInt(),
-//                            first,
-//                        )
-//                    }
-////                val dmy = r?.response?.body?.items?.item?.filter { it.category == "TMP" }
-////                    ?.filter { it.fcstValue.toInt()>10 }?.map { it.fcstValue.toInt() }//map으로 바꾼다
-////                    ?.toList()
-////                Log.i("홍", "$dmy")
-//                if (list2 != null) {
-//                    lst.addAll(list2)
-//                }
-//            }
             }) {
                 Text(text = "바꾸는 버튼")
             }
             Button(onClick = {
-                Toast.makeText(context,"버튼이 클릭됬다",Toast.LENGTH_SHORT)
+                Toast.makeText(context,"버튼이 클릭됬다",Toast.LENGTH_SHORT).show()
             }) {
                 Text(text = "토스트 버튼")
             }
@@ -160,14 +132,14 @@ fun FavouriteScreen() {
 //                    )
                     if (lst[lst2].sky.toInt() > 3) {
                         Image(
-                            painter = noSunImg, contentDescription = "3",
+                            painter = veryCloud, contentDescription = "3",
                             Modifier
                                 .height(60.dp)
                                 .width(70.dp)
                         )
                     } else if (lst[lst2].sky.toInt() > 1) {
                         Image(
-                            painter = nomalSunImg, contentDescription = "3",
+                            painter = cloudImg, contentDescription = "3",
                             Modifier
                                 .height(60.dp)
                                 .width(70.dp)

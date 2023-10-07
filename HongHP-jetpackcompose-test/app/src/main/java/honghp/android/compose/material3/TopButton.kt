@@ -23,7 +23,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -98,7 +97,7 @@ fun AlertDialogSample(
 }
 
 val screens = listOf(
-    ContentsMapper.HomeScreen, ContentsMapper.Favourite, ContentsMapper.Notification,
+    ContentsMapper.HomeScreen, ContentsMapper.Weather, ContentsMapper.Notification,
     ContentsMapper.Screen2
 )
 
