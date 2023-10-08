@@ -8,6 +8,7 @@ import androidx.compose.material.icons.outlined.ExitToApp
 import androidx.compose.material.icons.outlined.Face
 import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.List
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class ContentsMapper(
@@ -34,5 +35,10 @@ sealed class ContentsMapper(
         route = "cat_screen",
         title = "고양이",
         icon = Icons.Outlined.Face
+    )
+    object toDoList : ContentsMapper(
+        route = "toDoList",
+        title = "ToDoList",
+        icon = Icons.Outlined.List
     )
 }

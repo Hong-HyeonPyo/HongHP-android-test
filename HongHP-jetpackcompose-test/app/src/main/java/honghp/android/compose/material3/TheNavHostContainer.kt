@@ -21,5 +21,8 @@ fun NavHostContainer(navController: NavHostController) {
         composable("cat_screen") {
             CatScreen()
         }
+        composable("toDoList") {
+            ToDoList()
+        }
     }
 }
