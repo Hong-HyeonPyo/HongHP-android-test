@@ -188,27 +188,3 @@ fun callWeatherApi(lst: SnapshotStateList<Weather>) {
         }
     }
 }
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun CatScreen() {
-    var lst = mutableListOf<String>("1", "2", "3")
-    var catp = painterResource(R.drawable.cat)
-    var shouldShowDialog by remember {
-        mutableStateOf(false)
-    }
-    val context = LocalContext.current
-    LazyColumn() {
-        items(lst.size) {
-            Column {
-                Image(painter = catp, contentDescription = "3")
-                Button(onClick = {
-                    Toast.makeText(context, "닫힘", Toast.LENGTH_SHORT).show()
-                }) {
-                    Text(text = "버튼")
-                }
-                Text(text = "에엒따")
-            }
-        }
-    }
-}

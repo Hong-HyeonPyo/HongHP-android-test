@@ -1,6 +1,7 @@
 package honghp.android.compose.material3
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.outlined.AccountCircle
 import androidx.compose.material.icons.outlined.Create
 import androidx.compose.material.icons.outlined.DateRange
@@ -24,7 +25,7 @@ sealed class ContentsMapper(
     object Weather : ContentsMapper(
         route = "favourite_screen",
         title = "날씨",
-        icon = Icons.Outlined.DateRange
+        icon = Icons.Filled.Email
     )
     object Notification : ContentsMapper(
         route = "notification_screen",

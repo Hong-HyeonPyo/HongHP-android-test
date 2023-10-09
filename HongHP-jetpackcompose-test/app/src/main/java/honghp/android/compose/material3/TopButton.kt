@@ -48,7 +48,7 @@ fun MyTopAppBar(navController: NavHostController) {
 //            }
             AlertDialogSample(shouldShowDialog) {
                 shouldShowDialog = false
-                Toast.makeText(context, "닫힘", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context, "닫힘", Toast.LENGTH_SHORT).show()
             }
 
             TheDropDownMenu(navController)
