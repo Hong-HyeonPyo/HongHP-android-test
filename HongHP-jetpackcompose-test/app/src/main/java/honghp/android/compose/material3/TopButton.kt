@@ -98,7 +98,7 @@ fun AlertDialogSample(
 
 val screens = listOf(
     ContentsMapper.HomeScreen, ContentsMapper.Weather, ContentsMapper.Notification,
-    ContentsMapper.Screen2
+    ContentsMapper.Screen2,ContentsMapper.toDoList,ContentsMapper.theGame
 )
 
 @Composable

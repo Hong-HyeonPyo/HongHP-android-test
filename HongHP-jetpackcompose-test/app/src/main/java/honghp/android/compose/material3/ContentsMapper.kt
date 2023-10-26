@@ -42,4 +42,9 @@ sealed class ContentsMapper(
         title = "ToDoList",
         icon = Icons.Outlined.List
     )
+    object theGame : ContentsMapper(
+        route = "theGame",
+        title = "Game",
+        icon = Icons.Outlined.ExitToApp
+    )
 }

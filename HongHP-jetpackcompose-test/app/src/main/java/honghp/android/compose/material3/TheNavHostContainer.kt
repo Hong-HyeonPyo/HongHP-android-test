@@ -24,8 +24,8 @@ fun NavHostContainer(navController: NavHostController) {
         composable("toDoList") {
             ToDoList()
         }
-        composable("toDoList") {
-            ToDoList()
+        composable("theGame") {
+            TheGame(navController)
         }
     }
 }
