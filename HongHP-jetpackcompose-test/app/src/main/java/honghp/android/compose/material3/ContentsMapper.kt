@@ -47,4 +47,9 @@ sealed class ContentsMapper(
         title = "Game",
         icon = Icons.Outlined.ExitToApp
     )
+    object thetest : ContentsMapper(
+        route = "TstScrn",
+        title = "테스트",
+        icon = Icons.Outlined.Create
+    )
 }

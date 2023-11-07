@@ -20,7 +20,7 @@ fun BottomNavigationBar(
 ) {
     val screens = listOf(
         ContentsMapper.HomeScreen, ContentsMapper.Weather, ContentsMapper.Notification,
-        ContentsMapper.Screen2,ContentsMapper.toDoList,ContentsMapper.theGame
+        ContentsMapper.Screen2,ContentsMapper.toDoList,ContentsMapper.theGame,ContentsMapper.thetest
     )
     NavigationBar(
         modifier = modifier,
