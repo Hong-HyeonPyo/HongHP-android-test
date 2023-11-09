@@ -27,8 +27,12 @@ fun NavHostContainer(navController: NavHostController) {
         composable("theGame") {
             GameScreen()
         }
-        composable("TstScrn") {
+        composable("TstScrn2") {
             TstScrn2()
         }
+        composable("TstScrn") {
+            TstScrean()
+        }
+
     }
 }

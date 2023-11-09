@@ -18,10 +18,12 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -63,7 +65,7 @@ fun GameScreen() {
             Text(
                 text = "성공 !!", textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth(), fontSize = 40.sp,
-                color = Color.Yellow
+                color = Color.Magenta
             )
         }
     }
@@ -273,84 +275,110 @@ fun WithTheBoxes(
         }
     }
 }
-
+//========================================
 @Composable
-fun TstScrnTxtChild(Tindx: Int) {
-    Column {
-        Text(text = "$Tindx")
-    }
-}
-
-
-@Composable
-fun TstScrnPlsChild(inc: () -> Unit) {
-    Button(onClick = {
-        inc()
-    }) {
-        Text(text = "증가")
-    }
-}
-
-@Composable
-fun TstScrnMinChild(decr: () -> Unit) {
-    Button(onClick = {
-        decr()
-    }) {
-        Text(text = "감소")
-    }
-}
-
-@Composable
-fun TstScrn() {
-    var indx by remember { mutableStateOf(0) }
-    fun increase() {
-        indx++
-    }
-
-    fun decrease() {
-        indx--
-    }
+fun TstScrnMinChild(idx: Int, funchn: () -> Unit) {
     Row {
-        Column {
-            TstScrnPlsChild({ increase() })
-            TstScrnMinChild({ decrease() })
-            Text(text = "${indx}")
+        Card {
+            Text(text = "${idx}")
+            Button(onClick = {
+                funchn()
+            }) {
+                Text(text = "감소")
+            }
         }
     }
-
 }
-
-//========================================
-
-
 @Composable
-fun TstScrnPlsChild2(num: MutableState<Int>) {
-    Button(onClick = {
-        num.value++
-    }) {
-        Text(text = "증가")
+fun TstScrnMinChild2(idx: Int, funchn: () -> Unit) {
+    Row {
+        Card {
+            Text(text = "${idx}")
+            Button(onClick = {
+                funchn()
+            }) {
+                Text(text = "증가")
+            }
+        }
     }
 }
-
 @Composable
-fun TstScrnMinChild2(num: MutableState<Int>) {
-    Button(onClick = {
-        num.value--
-    }) {
-        Text(text = "감소")
+fun TstScrnMinChild3(idx: Int, funchn: () -> Unit) {
+    Row {
+        Card {
+            Text(text = "${idx}")
+            Button(onClick = {
+                funchn()
+            }) {
+                Text(text = "증가")
+            }
+        }
     }
 }
-
+@Composable
+fun TstScrnMinChild4(idx: Int, funchn: () -> Unit) {
+    Row {
+        Card {
+            Text(text = "${idx}")
+            Button(onClick = {
+                funchn()
+            }) {
+                Text(text = "증가")
+            }
+        }
+    }
+}
 @Composable
 fun TstScrn2() {
-    val indx = remember { mutableStateOf(0) }
-
+    var indx by remember { mutableStateOf(0) }
+    var indx4 by remember { mutableStateOf(0) }
+    fun indxPls() { indx++ }
+    var indx2 by remember { mutableStateOf(0) }
+    fun indx2Pls() { indx2++ }
+    var indx3 by remember { mutableStateOf(0) }
+    fun indx3Pls() { indx3++ }
+    fun indx4Pls() { indx4++ }
     Row {
         Column {
-            TstScrnPlsChild2(indx)
-            TstScrnMinChild2(indx)
-            Text(text = "${indx.value}")
+            Row {
+                TstScrnMinChild(indx, { indx2Pls() })
+                TstScrnMinChild2(indx2, { indx3Pls() })
+            }
+            Row {
+                TstScrnMinChild3(indx3, { indx4Pls() })
+                TstScrnMinChild4(indx4, { indxPls() })
+            }
         }
     }
+}
+// 합계구하기
+@Composable
+fun TstScreanChild( funchn: (idx:Int) -> Unit) {
+    var numbr= remember{ mutableIntStateOf(3) }
+    Row {
+        Card {
+//            Text(text = "${indx}")
+            Button(onClick = {
+                funchn(3)
+            }) {
+                Text(text = "증가")
+            }
+        }
+    }
+}
+@Composable
+fun TstScrean() {
+    var indx by remember { mutableStateOf(1) }
+    fun indxPls(plsIdx:Int){ indx=indx+plsIdx }
+    Row {
+        Column {
+            Row {
+                Text(text = "${indx}")
+                TstScreanChild(funchn = {indxPls(indx)})
+            }
+            Row {
 
+            }
+        }
+    }
 }

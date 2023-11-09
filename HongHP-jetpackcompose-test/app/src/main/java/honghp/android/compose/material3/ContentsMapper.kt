@@ -3,6 +3,7 @@ package honghp.android.compose.material3
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.outlined.AccountCircle
+import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.Create
 import androidx.compose.material.icons.outlined.DateRange
 import androidx.compose.material.icons.outlined.ExitToApp
@@ -47,9 +48,14 @@ sealed class ContentsMapper(
         title = "Game",
         icon = Icons.Outlined.ExitToApp
     )
+    object thetest2 : ContentsMapper(
+        route = "TstScrn2",
+        title = "테스트",
+        icon = Icons.Outlined.Create
+    )
     object thetest : ContentsMapper(
         route = "TstScrn",
         title = "테스트",
-        icon = Icons.Outlined.Create
+        icon = Icons.Outlined.Add
     )
 }
