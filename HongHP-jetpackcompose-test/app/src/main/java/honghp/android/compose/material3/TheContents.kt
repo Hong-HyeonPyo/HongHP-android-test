@@ -101,11 +101,11 @@ fun FavouriteScreen() {
             }) {
                 Text(text = "바꾸는 버튼")
             }
-            Button(onClick = {
-                Toast.makeText(context,"버튼이 클릭됬다",Toast.LENGTH_SHORT).show()
-            }) {
-                Text(text = "토스트 버튼")
-            }
+//            Button(onClick = {
+//                Toast.makeText(context,"버튼이 클릭됬다",Toast.LENGTH_SHORT).show()
+//            }) {
+//                Text(text = "토스트 버튼")
+//            }
         }
         LazyColumn {
             items(lst.size) { lst2 ->

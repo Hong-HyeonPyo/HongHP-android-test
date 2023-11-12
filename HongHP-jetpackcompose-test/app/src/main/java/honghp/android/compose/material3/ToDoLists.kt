@@ -45,9 +45,8 @@ fun ToDoList() {
     var text by remember { mutableStateOf("글자를 적으세요") }
     var horScrol = rememberScrollState()
 
-    var lst = remember {
-        mutableStateListOf(String())
-    }
+    var lst = remember { mutableStateListOf(String()) }
+    lst.clear()
     AlertDialogSample2(shouldShowDialog) {
         shouldShowDialog = false
     }

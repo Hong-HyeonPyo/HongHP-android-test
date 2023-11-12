@@ -227,7 +227,6 @@ fun replace(src: Pair<Int, Int>, distanceY: Int, distanceX: Int, idxList: Snapsh
         idxList[convertMatrixToIdx(newPos)] = theValue
     }
 }
-
 @Composable
 fun WithTheBoxes(
     selectedIdx: Int,
@@ -253,7 +252,7 @@ fun WithTheBoxes(
                             shape = RoundedCornerShape(15.dp, 15.dp, 15.dp, 15.dp)
                         )
                         .background(
-                            color = if (selectedIdx == item) Color.Cyan else Color.Blue,
+                            color = if (selectedIdx == item) Color.Cyan else Color.Yellow,
 //                            color = Color(0xFFfbe3ff),
                             shape = RoundedCornerShape(15.dp, 15.dp, 15.dp, 15.dp)
                         )
@@ -271,113 +270,6 @@ fun WithTheBoxes(
                         color = Color.Black,
                     )
                 }
-            }
-        }
-    }
-}
-//========================================
-@Composable
-fun TstScrnMinChild(idx: Int, funchn: () -> Unit) {
-    Row {
-        Card {
-            Text(text = "${idx}")
-            Button(onClick = {
-                funchn()
-            }) {
-                Text(text = "감소")
-            }
-        }
-    }
-}
-@Composable
-fun TstScrnMinChild2(idx: Int, funchn: () -> Unit) {
-    Row {
-        Card {
-            Text(text = "${idx}")
-            Button(onClick = {
-                funchn()
-            }) {
-                Text(text = "증가")
-            }
-        }
-    }
-}
-@Composable
-fun TstScrnMinChild3(idx: Int, funchn: () -> Unit) {
-    Row {
-        Card {
-            Text(text = "${idx}")
-            Button(onClick = {
-                funchn()
-            }) {
-                Text(text = "증가")
-            }
-        }
-    }
-}
-@Composable
-fun TstScrnMinChild4(idx: Int, funchn: () -> Unit) {
-    Row {
-        Card {
-            Text(text = "${idx}")
-            Button(onClick = {
-                funchn()
-            }) {
-                Text(text = "증가")
-            }
-        }
-    }
-}
-@Composable
-fun TstScrn2() {
-    var indx by remember { mutableStateOf(0) }
-    var indx4 by remember { mutableStateOf(0) }
-    fun indxPls() { indx++ }
-    var indx2 by remember { mutableStateOf(0) }
-    fun indx2Pls() { indx2++ }
-    var indx3 by remember { mutableStateOf(0) }
-    fun indx3Pls() { indx3++ }
-    fun indx4Pls() { indx4++ }
-    Row {
-        Column {
-            Row {
-                TstScrnMinChild(indx, { indx2Pls() })
-                TstScrnMinChild2(indx2, { indx3Pls() })
-            }
-            Row {
-                TstScrnMinChild3(indx3, { indx4Pls() })
-                TstScrnMinChild4(indx4, { indxPls() })
-            }
-        }
-    }
-}
-// 합계구하기
-@Composable
-fun TstScreanChild( funchn: (idx:Int) -> Unit) {
-    var numbr= remember{ mutableIntStateOf(3) }
-    Row {
-        Card {
-//            Text(text = "${indx}")
-            Button(onClick = {
-                funchn(3)
-            }) {
-                Text(text = "증가")
-            }
-        }
-    }
-}
-@Composable
-fun TstScrean() {
-    var indx by remember { mutableStateOf(1) }
-    fun indxPls(plsIdx:Int){ indx=indx+plsIdx }
-    Row {
-        Column {
-            Row {
-                Text(text = "${indx}")
-                TstScreanChild(funchn = {indxPls(indx)})
-            }
-            Row {
-
             }
         }
     }
