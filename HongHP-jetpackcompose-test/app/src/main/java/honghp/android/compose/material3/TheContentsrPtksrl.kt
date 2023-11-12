@@ -36,12 +36,8 @@ fun rPtksrl() {
     val context = LocalContext.current
     var text by remember { mutableStateOf("2") }
     var text2 by remember { mutableStateOf("5") }
-    Log.d("홍", text.toString())
-    Log.d("홍", text2.toString())
     var value: Long = remember { text.toLong() * text2.toLong() }
     var Rvalue = remember { mutableStateOf(value.toString()) }
-    Log.d("홍", value.toString())
-    Log.d("홍", "E")
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -63,15 +59,15 @@ fun rPtksrl() {
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 textStyle = TextStyle(color = Color.Black),
                 modifier = Modifier.width(200.dp),
-                onValueChange = { text = it.toString() }//,label = { Text("Label") }
+                onValueChange = { text = if (it.trim() == "") "0" else it }//,label = { Text("Label") }
             )
             TextField(
                 value = text2,
                 textStyle = TextStyle(color = Color.Black),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
 //                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                onValueChange = { text2 = it.toString() }//,label = { Text("Label") }
-//                ,color= Color.Black
+                onValueChange = { text = if (it.trim() == "") "1" else if(it.trim()=="0") "1" else it }
+            //,label = { Text("Label") } ,color= Color.Black
             )
         }
         Row {

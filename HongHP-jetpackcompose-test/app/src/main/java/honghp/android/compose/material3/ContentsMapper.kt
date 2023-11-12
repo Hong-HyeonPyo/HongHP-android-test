@@ -1,7 +1,9 @@
 package honghp.android.compose.material3
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.outlined.AccountCircle
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.Create
@@ -26,7 +28,7 @@ sealed class ContentsMapper(
     object Weather : ContentsMapper(
         route = "favourite_screen",
         title = "날씨",
-        icon = Icons.Filled.Email
+        icon = Icons.Filled.Info
     )
     object Notification : ContentsMapper(
         route = "notification_screen",
@@ -51,11 +53,11 @@ sealed class ContentsMapper(
     object thetest2 : ContentsMapper(
         route = "TstScrn2",
         title = "테스트",
-        icon = Icons.Outlined.Create
+        icon = Icons.Outlined.Add
     )
     object thetest : ContentsMapper(
         route = "TstScrn",
         title = "테스트",
-        icon = Icons.Outlined.Add
+        icon = Icons.Outlined.Create
     )
 }

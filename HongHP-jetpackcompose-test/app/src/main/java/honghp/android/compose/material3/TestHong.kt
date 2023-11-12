@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 //========================================
 @Composable
@@ -125,21 +126,19 @@ fun TstScrn2() {
 fun TstScreanChild(funchn: (idx: Long) -> Unit) {
     var num by remember { mutableLongStateOf(1) }
     Column {
-        Card {
-            Row {
-                OutlinedTextField(
-                    value = num.toString(),
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                    textStyle = TextStyle(color = Color.Black),
-                    modifier = Modifier.width(230.dp),
-                    onValueChange = { num = if (it.trim() == "") 0 else it.toLong() },
-                    maxLines = 1
-                )
-                Button(onClick = {
-                    funchn(num)
-                }, Modifier.size(60.dp, 60.dp)) {
-                    Text(text = "증가")
-                }
+        Row {
+            OutlinedTextField(
+                value = num.toString(),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                textStyle = TextStyle(color = Color.Black),
+                modifier = Modifier.width(230.dp),
+                onValueChange = { num = if (it.trim() == "") 0 else it.toLong() },
+                maxLines = 1
+            )
+            Button(onClick = {
+                funchn(num)
+            }, Modifier.size(130.dp, 50.dp)) {
+                Text(text = "증가", fontSize = 27.sp)
             }
         }
     }
@@ -158,7 +157,7 @@ fun TstScrean() {
         }
     }
     fun indxPls(plsIdx: Long) {
-        indx=indx+plsIdx
+        indx = indx + plsIdx
     }
     Row {
         Column {
@@ -168,7 +167,7 @@ fun TstScrean() {
                 }
             }
             Column {
-                Text(text = Long.MAX_VALUE.toString())
+//                Text(text = Long.MAX_VALUE.toString())
                 Text(text = "${indx}")
             }
         }

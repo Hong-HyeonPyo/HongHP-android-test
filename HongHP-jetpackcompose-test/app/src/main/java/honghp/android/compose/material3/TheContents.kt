@@ -39,14 +39,14 @@ import rocklike.compose.weather.requestWeatherApi
 
 @Composable
 fun HomeScreen() {
-    var catp2 = painterResource(R.drawable.cat2)
+    var nabi = painterResource(R.drawable.catnabi)
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(color = Color.DarkGray)
             .wrapContentSize(Alignment.Center)
     ) {
-        Image(painter = catp2, contentDescription = "3")
+        Image(painter = nabi, contentDescription = "3")
         Text(
             text = "Home Screen",
             style = MaterialTheme.typography.titleLarge,
@@ -72,7 +72,7 @@ fun FavouriteScreen() {
     var lstSiz = remember { mutableIntStateOf(lst.size) }
     var dummy = remember { mutableStateOf(callWeatherApi(lst)) }
 
-    Toast.makeText(context, "불러오는중", Toast.LENGTH_SHORT).show()
+//    Toast.makeText(context, "불러오는중", Toast.LENGTH_SHORT).show()
 //    Log.i("홍", "불러오는 중")
 
 //    callWeatherApi(lst)
@@ -99,7 +99,7 @@ fun FavouriteScreen() {
                 lst.clear()
                 callWeatherApi(lst)
             }) {
-                Text(text = "바꾸는 버튼")
+                Text(text = "새로고침")
             }
 //            Button(onClick = {
 //                Toast.makeText(context,"버튼이 클릭됬다",Toast.LENGTH_SHORT).show()

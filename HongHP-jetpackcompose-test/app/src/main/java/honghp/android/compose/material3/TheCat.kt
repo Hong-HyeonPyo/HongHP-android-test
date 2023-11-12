@@ -56,7 +56,6 @@ fun CatScreen() {
     val context = LocalContext.current
     Column(Modifier.horizontalScroll(MainHorScrol)) {
         LazyColumn( ) {
-
             items(lst.size) {
                 Column {
                     Image(painter = catp, contentDescription = "3")
@@ -66,8 +65,6 @@ fun CatScreen() {
                         Text(text = "버튼")
                     }
                     Text(text = "에엒따")
-
-
                 }
             }
             item{
