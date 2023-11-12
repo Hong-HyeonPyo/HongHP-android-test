@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -46,14 +47,14 @@ fun HomeScreen() {
             .background(color = Color.DarkGray)
             .wrapContentSize(Alignment.Center)
     ) {
-        Image(painter = nabi, contentDescription = "3")
-        Text(
-            text = "Home Screen",
-            style = MaterialTheme.typography.titleLarge,
-            color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-        )
+        Image(painter = nabi, contentDescription = "3",Modifier.size(350.dp,350.dp))
+//        Text(
+//            text = "Home Screen",
+//            style = MaterialTheme.typography.titleLarge,
+//            color = Color.White,
+//            modifier = Modifier.align(Alignment.CenterHorizontally),
+//            textAlign = TextAlign.Center,
+//        )
     }
 }
 
@@ -72,9 +73,7 @@ fun FavouriteScreen() {
     var lstSiz = remember { mutableIntStateOf(lst.size) }
     var dummy = remember { mutableStateOf(callWeatherApi(lst)) }
 
-//    Toast.makeText(context, "불러오는중", Toast.LENGTH_SHORT).show()
-//    Log.i("홍", "불러오는 중")
-
+    Toast.makeText(context, "불러오는중", Toast.LENGTH_SHORT).show()
 //    callWeatherApi(lst)
 //    Text(
 //        text = "날씨",
