@@ -137,7 +137,7 @@ fun TstScreanChild(funchn: (idx: Long) -> Unit) {
             )
             Button(onClick = {
                 funchn(num)
-            }, Modifier.size(130.dp, 50.dp)) {
+            }, Modifier.size(200.dp, 100.dp)) {
                 Text(text = "증가", fontSize = 27.sp)
             }
         }

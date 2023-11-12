@@ -36,13 +36,10 @@ import androidx.compose.ui.text.style.TextOverflow
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Main() {
-
     val navController: NavHostController = rememberNavController()
     val bottomBarHeight = 56.dp
     val bottomBarOffsetHeightPx = remember { mutableStateOf(0f) }
-
     var buttonsVisible = remember { mutableStateOf(true) }
-
     Scaffold(
         topBar = { MyTopAppBar(navController) },
         bottomBar = {
