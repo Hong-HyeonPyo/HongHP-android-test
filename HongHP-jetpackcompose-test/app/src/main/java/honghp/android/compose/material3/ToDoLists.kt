@@ -80,10 +80,13 @@ fun ToDoList() {
         }
         LazyColumn(
         ) {
-            items(lst.value.size) { item ->
+            items(lst.value.size) { idx ->
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "${lst.value[item]}", modifier = Modifier.width(300.dp))
+                    Text(text = "${lst.value[idx]}", modifier = Modifier.width(300.dp))
                     Button(onClick = {
+                        val tmp = lst.value.toMutableList()
+                        tmp.removeAt(idx)
+                        lst.value = tmp
 //                        lst.removeAt(item)
                     }) {
                         Text(text = "삭제")
