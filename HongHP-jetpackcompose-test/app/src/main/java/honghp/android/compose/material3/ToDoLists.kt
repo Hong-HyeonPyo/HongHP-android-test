@@ -23,6 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,22 +41,21 @@ import kotlin.random.Random
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ToDoList() {
-    val context = LocalContext.current
+//    val context = LocalContext.current
     var shouldShowDialog by remember { mutableStateOf(false) }
     var text by remember { mutableStateOf("글자를 적으세요") }
-    var horScrol = rememberScrollState()
+    val lst = rememberSaveable { mutableStateOf(listOf<String>()) }
 
-    var lst = remember { mutableStateListOf(String()) }
-    lst.clear()
+//    lst.clear()
     AlertDialogSample2(shouldShowDialog) {
         shouldShowDialog = false
+        lst.value = listOf()
     }
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(color = Color.White)
 //            .wrapContentSize(Alignment.Center),
-
     ) {
         Row {
             OutlinedTextField(
@@ -67,34 +67,30 @@ fun ToDoList() {
                 maxLines = 2
             )
             Button(onClick = {
-                lst.add("$text")
+                lst.value = listOf( *lst.value.toTypedArray() , text  )
             }) {
                 Text(text = "추가")
             }
             Button(onClick = {
                 shouldShowDialog = true
-                lst.clear()
+//                lst.value= listOf<String>()
             }) {
                 Text(text = "초기화")
             }
         }
-        LazyColumn (
-            Modifier.horizontalScroll(horScrol)
-        ){
-
-            items(lst.size) { item ->
-                Row {
-                    Text(text = "${lst[item]}", modifier = Modifier.width(300.dp))
+        LazyColumn(
+        ) {
+            items(lst.value.size) { item ->
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "${lst.value[item]}", modifier = Modifier.width(300.dp))
                     Button(onClick = {
-                        lst.removeAt(item)
+//                        lst.removeAt(item)
                     }) {
                         Text(text = "삭제")
                     }
                 }
-
             }
         }
-
     }
 }
 
