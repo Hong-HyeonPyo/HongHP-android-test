@@ -71,7 +71,7 @@ fun FavouriteScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.Cyan)
+            .background(color = Color.White)
             .wrapContentSize(Alignment.Center)
     ) {
         var sunImg = painterResource(R.drawable.sun)

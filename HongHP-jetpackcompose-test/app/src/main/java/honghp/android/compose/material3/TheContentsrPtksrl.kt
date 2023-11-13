@@ -23,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
@@ -66,13 +67,13 @@ fun rPtksrl() {
                 textStyle = TextStyle(color = Color.Black),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
 //                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                onValueChange = { text = if (it.trim() == "") "1" else if(it.trim()=="0") "1" else it }
+                onValueChange = { text2 = if (it.trim() == "") "1" else if(it.trim()=="0") "1" else it }
             //,label = { Text("Label") } ,color= Color.Black
             )
         }
         Row {
             Button(onClick = {
-                Toast.makeText(context, "곱하기 버튼 클릭됨", Toast.LENGTH_SHORT)
+//                Toast.makeText(context, "곱하기 버튼 클릭됨", Toast.LENGTH_SHORT)
                 value = text.toLong() * text2.toLong()
                 Rvalue.value = value.toString()
                 Log.d("홍", value.toString())
@@ -97,7 +98,7 @@ fun rPtksrl() {
                 value = text.toLong() - text2.toLong()
                 Rvalue.value = value.toString()
                 Log.d("홍", value.toString())
-            }) {
+            }, shape = RectangleShape,) {
                 Text(text = "빼기")
             }
         }

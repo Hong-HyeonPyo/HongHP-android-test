@@ -33,11 +33,11 @@ import androidx.compose.ui.unit.sp
 fun TstScrnMinChild(idx: Int, funchn: () -> Unit) {
     Row {
         Card {
-            Text(text = "${idx}")
+            Text(text = "${idx}", fontSize = 30.sp)
             Button(onClick = {
                 funchn()
             }) {
-                Text(text = "증가")
+                Text(text = "증가", fontSize = 30.sp)
             }
         }
     }
@@ -47,11 +47,11 @@ fun TstScrnMinChild(idx: Int, funchn: () -> Unit) {
 fun TstScrnMinChild2(idx: Int, funchn: () -> Unit) {
     Row {
         Card {
-            Text(text = "${idx}")
+            Text(text = "${idx}", fontSize = 30.sp)
             Button(onClick = {
                 funchn()
             }) {
-                Text(text = "증가")
+                Text(text = "증가", fontSize = 30.sp)
             }
         }
     }
@@ -61,11 +61,11 @@ fun TstScrnMinChild2(idx: Int, funchn: () -> Unit) {
 fun TstScrnMinChild3(idx: Int, funchn: () -> Unit) {
     Row {
         Card {
-            Text(text = "${idx}")
+            Text(text = "${idx}", fontSize = 30.sp)
             Button(onClick = {
                 funchn()
             }) {
-                Text(text = "증가")
+                Text(text = "증가", fontSize = 30.sp)
             }
         }
     }
@@ -75,16 +75,15 @@ fun TstScrnMinChild3(idx: Int, funchn: () -> Unit) {
 fun TstScrnMinChild4(idx: Int, funchn: () -> Unit) {
     Row {
         Card {
-            Text(text = "${idx}")
+            Text(text = "${idx}", fontSize = 30.sp)
             Button(onClick = {
                 funchn()
             }) {
-                Text(text = "증가")
+                Text(text = "증가", fontSize = 30.sp)
             }
         }
     }
 }
-
 @Composable
 fun TstScrn2() {
     var indx by remember { mutableStateOf(0) }
@@ -92,17 +91,14 @@ fun TstScrn2() {
     fun indxPls() {
         indx++
     }
-
     var indx2 by remember { mutableStateOf(0) }
     fun indx2Pls() {
         indx2++
     }
-
     var indx3 by remember { mutableStateOf(0) }
     fun indx3Pls() {
         indx3++
     }
-
     fun indx4Pls() {
         indx4++
     }
@@ -137,7 +133,7 @@ fun TstScreanChild(funchn: (idx: Long) -> Unit) {
             )
             Button(onClick = {
                 funchn(num)
-            }, Modifier.size(200.dp, 100.dp)) {
+            }, Modifier.size(200.dp, 55.dp)) {
                 Text(text = "증가", fontSize = 27.sp)
             }
         }
