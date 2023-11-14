@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -58,7 +59,7 @@ fun MyTopAppBar(navController: NavHostController) {
                 shouldShowDialog = true
             }) {
                 Icon(
-                    imageVector = Icons.Filled.CheckCircle,
+                    imageVector = Icons.Filled.Info,
                     contentDescription = "Share",
                 )
             }
@@ -80,16 +81,16 @@ fun AlertDialogSample(
         AlertDialog(
             onDismissRequest = onDismiss,
             title = {
-                Text(text = "제목")
+                Text(text = "이 앱에 관해서")
             },
             text = {
-                Text(text = "정보 ")
+                Text(text = "이 앱은 매완성이며 여러가지 기능을 추가할 예정입니다")
             },
             confirmButton = {
                 Button(
                     onClick = onDismiss
                 ) {
-                    Text(text = "버튼")
+                    Text(text = "확인")
                 }
             }
         )

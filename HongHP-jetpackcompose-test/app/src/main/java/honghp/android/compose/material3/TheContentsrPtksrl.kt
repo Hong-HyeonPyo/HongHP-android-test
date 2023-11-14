@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
@@ -14,7 +15,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -37,8 +37,9 @@ fun rPtksrl() {
     val context = LocalContext.current
     var text by remember { mutableStateOf("2") }
     var text2 by remember { mutableStateOf("5") }
-    var value: Long = remember { text.toLong() * text2.toLong() }
-    var Rvalue = remember { mutableStateOf(value.toString()) }
+    var operator by remember{ mutableStateOf(" + ") }
+    var value = remember { text.toDouble() * text2.toDouble() }
+    var rvalue by remember { mutableStateOf(value.toString()) }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -54,57 +55,74 @@ fun rPtksrl() {
         )
     }
     Column {
-        Row {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             OutlinedTextField(
                 value = text,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 textStyle = TextStyle(color = Color.Black),
-                modifier = Modifier.width(200.dp),
+                modifier = Modifier.width(130.dp),
                 onValueChange = { text = if (it.trim() == "") "0" else it }//,label = { Text("Label") }
             )
-            TextField(
+            Text(text=operator, fontSize = 30.sp)
+            OutlinedTextField(
                 value = text2,
                 textStyle = TextStyle(color = Color.Black),
+                modifier = Modifier.width(130.dp),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
 //                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                onValueChange = { text2 = if (it.trim() == "") "1" else if(it.trim()=="0") "1" else it }
-            //,label = { Text("Label") } ,color= Color.Black
+                onValueChange = { text2 = if (it.trim() == "") "0" else it },
+                //,label = { Text("Label") } ,color= Color.Black
             )
+            Text(text=" = ")
+            Text(text=rvalue, fontSize = 20.sp, color = Color.Blue,)
         }
-        Row {
+        Row (verticalAlignment = Alignment.CenterVertically){
             Button(onClick = {
 //                Toast.makeText(context, "곱하기 버튼 클릭됨", Toast.LENGTH_SHORT)
-                value = text.toLong() * text2.toLong()
-                Rvalue.value = value.toString()
+                value = text.toDouble() * text2.toDouble()
+                rvalue = value.toString()
+                operator = " * "
                 Log.d("홍", value.toString())
-            }) {
+            }, shape = RectangleShape,) {
                 Text(text = "곱하기")
             }
+            Spacer(modifier = Modifier.width(5.dp))
             Button(onClick = {
-                value = text.toLong() / text2.toLong()
-                Rvalue.value = value.toString()
+                Log.d("홍", "==== ${text2.toDouble()} , ${text2.toDouble()==0.0} " )
+                if (text2!="0" && text2.toDouble()!=0.0){
+                    value = text.toDouble() / text2.toDouble()
+                }else {
+                    value=0.0
+                    Toast.makeText(context,"0으로는 나눌수 없습니다.", Toast.LENGTH_SHORT).show()
+                }
+                rvalue = value.toString()
+                operator = " / "
                 Log.d("홍", value.toString())
-            }) {
+            }, shape = RectangleShape,) {
                 Text(text = "나누기")
             }
+            Spacer(modifier = Modifier.width(5.dp))
             Button(onClick = {
-                value = text.toLong() + text2.toLong()
-                Rvalue.value = value.toString()
+                value = text.toDouble() + text2.toDouble()
+                rvalue = value.toString()
+                operator = " + "
                 Log.d("홍", value.toString())
-            }) {
+            }, shape = RectangleShape,) {
                 Text(text = "더하기")
             }
+            Spacer(modifier = Modifier.width(5.dp))
             Button(onClick = {
-                value = text.toLong() - text2.toLong()
-                Rvalue.value = value.toString()
+                value = text.toDouble() - text2.toDouble()
+                rvalue = value.toString()
+                operator = " - "
                 Log.d("홍", value.toString())
             }, shape = RectangleShape,) {
                 Text(text = "빼기")
             }
         }
-        Text(
-            text = Rvalue.value, fontSize = 20.sp, color = Color.Blue,
-            textAlign = TextAlign.Center
-        )
+//        Text(
+//            text = rvalue, fontSize = 20.sp, color = Color.Blue,
+//            textAlign = TextAlign.Center
+//        )
     }
 }

@@ -43,7 +43,7 @@ import kotlin.random.Random
 fun ToDoList() {
 //    val context = LocalContext.current
     var shouldShowDialog by remember { mutableStateOf(false) }
-    var text by remember { mutableStateOf("글자를 적으세요") }
+    var text by remember { mutableStateOf("") }
     val lst = rememberSaveable { mutableStateOf(listOf<String>()) }
 
 //    lst.clear()
@@ -59,12 +59,13 @@ fun ToDoList() {
     ) {
         Row {
             OutlinedTextField(
-                value = text,
+                value =text,
 //                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 textStyle = TextStyle(color = Color.Black),
                 modifier = Modifier.width(230.dp),
                 onValueChange = { text = it.toString() },//,label = { Text("Label") }
-                maxLines = 2
+                maxLines = 2,
+                placeholder = { Text("입력하세요.", color=Color.LightGray) },
             )
             Button(onClick = {
                 lst.value = listOf( *lst.value.toTypedArray() , text  )
@@ -109,7 +110,7 @@ fun AlertDialogSample2(
                 Text(text = "#경고")
             },
             text = {
-                Text(text = "모든 데이터 삭제됨.")
+                Text(text = "기록이 초기화 되었습니다.")
             },
             confirmButton = {
                 Button(
