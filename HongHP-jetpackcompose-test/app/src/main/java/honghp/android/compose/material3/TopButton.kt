@@ -67,11 +67,9 @@ fun MyTopAppBar(navController: NavHostController) {
 
         )
 }
-
 private fun showToast(context: Context, message: String) {
     Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
 }
-
 @Composable
 fun AlertDialogSample(
     shouldShowDialog: Boolean,
@@ -84,7 +82,7 @@ fun AlertDialogSample(
                 Text(text = "이 앱에 관해서")
             },
             text = {
-                Text(text = "이 앱은 매완성이며 여러가지 기능을 추가할 예정입니다")
+                Text(text = "이 앱은 미완성이며 여러가지 기능을 추가할 예정입니다")
             },
             confirmButton = {
                 Button(

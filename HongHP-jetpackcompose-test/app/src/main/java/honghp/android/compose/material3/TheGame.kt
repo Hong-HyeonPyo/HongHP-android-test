@@ -238,10 +238,8 @@ fun WithTheBoxes(
         columns = GridCells.Fixed(3),
         contentPadding = PaddingValues(8.dp)
     ) {
-
         itemsIndexed(idxList) { idx, item ->
             if (item == 8) {
-
             } else {
                 val ctx = LocalContext.current.applicationContext
                 Box(
@@ -252,8 +250,7 @@ fun WithTheBoxes(
                             shape = RoundedCornerShape(15.dp, 15.dp, 15.dp, 15.dp)
                         )
                         .background(
-                            color = if (selectedIdx == item) Color.Cyan else Color.Yellow,
-//                            color = Color(0xFFfbe3ff),
+                            color = if (selectedIdx == item) Color.Cyan else Color.Cyan,
                             shape = RoundedCornerShape(15.dp, 15.dp, 15.dp, 15.dp)
                         )
                         .padding(3.dp)

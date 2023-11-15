@@ -97,7 +97,6 @@ fun ToDoList() {
         }
     }
 }
-
 @Composable
 fun AlertDialogSample2(
     shouldShowDialog: Boolean,
