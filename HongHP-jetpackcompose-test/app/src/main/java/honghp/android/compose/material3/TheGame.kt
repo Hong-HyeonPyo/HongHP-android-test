@@ -39,28 +39,36 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun GameScreen() {
+
     var selectedIdx by remember { mutableStateOf(-1) }
     var vv by remember { mutableStateOf(true) }
     val idxList = remember { mutableStateListOf<Int>(*List(9, { it }).toTypedArray()) }
+//    val idxList = remember { mutableStateListOf<Int>(0,1,2,3,4,5,6,7,8) }
     var isSuccess by remember { mutableStateOf(false) }
+    Log.d("홍","시작")
+    Log.d("홍","${selectedIdx}")
+    Log.d("홍","${idxList}")
     fun setSelectedIdx(idx: Int) {
         selectedIdx = idx
     }
-
     fun setSuccess(s: Boolean) {
         isSuccess = s
     }
-
     fun initIdx() {
         Log.i("hong", "initIdx() 호출")
         selectedIdx = selectedIdx + 10
     }
+
     Column {
-        RandomizeButton(idxList, { s: Boolean -> setSuccess(s) }) { -> initIdx() }
+        RandomizeButton(idxList, { s: Boolean -> setSuccess(s) }) {  initIdx() }
+
         WithTheBoxes(
             selectedIdx,
             idxList,
-            { s: Boolean -> setSuccess(s) }) { idx: Int -> setSelectedIdx(idx) }
+            { s: Boolean -> setSuccess(s) },
+            { idx: Int -> setSelectedIdx(idx) }
+        )
+
         if (isSuccess) {
             Text(
                 text = "성공 !!", textAlign = TextAlign.Center,
@@ -70,8 +78,6 @@ fun GameScreen() {
         }
     }
 }
-
-
 fun makeRandomList(idxList: SnapshotStateList<Int>) {
     for (idx in idxList.indices) {
         idxList[idx] = -1
@@ -90,27 +96,6 @@ fun makeRandomList(idxList: SnapshotStateList<Int>) {
         }
     }
 
-//    [주의] 아래처럼 forEachIndexed() 메소드를 쓰면, ConcurrentModificationException 이 발생함.
-//    idxList.forEachIndexed { idx, elem ->
-//        val r = (0..8).random()
-//        for (i in r..r + size) {
-//            val k = i % size
-//            if (idxList[k] == -1) {
-//                idxList[k] = idx
-//                break
-//            }
-//        }
-//    }
-}
-
-fun main() {
-//    for(k in 1..8){
-//        val random = (1..8).random()
-//        println(random)
-//    }
-    var list = MutableList(8, { it })
-    list.forEachIndexed { idx, elem -> list[idx] = idx * 2 }
-    println(list)
 }
 
 
@@ -227,6 +212,7 @@ fun replace(src: Pair<Int, Int>, distanceY: Int, distanceX: Int, idxList: Snapsh
         idxList[convertMatrixToIdx(newPos)] = theValue
     }
 }
+
 @Composable
 fun WithTheBoxes(
     selectedIdx: Int,

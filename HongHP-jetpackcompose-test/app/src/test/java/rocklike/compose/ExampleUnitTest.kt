@@ -4,14 +4,18 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-class ExampleUnitTest {
-    @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
-    }
+fun main() {
+    val list = List<Int>(5, { it+1 }) // 1,2,3,4,5
+    val l = list.map { it * 10 }.filter { it>20 }.first()
+
+    println(l)
+
+//    println(list)
+//    println( test(1,2,3,4,5) )
+//    println( test( *list.toIntArray() ) )
+
+}
+
+fun test(vararg k:Int): Int {
+    return k.size
 }

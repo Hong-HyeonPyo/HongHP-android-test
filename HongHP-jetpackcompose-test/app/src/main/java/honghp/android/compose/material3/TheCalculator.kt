@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun rPtksrl() {
+fun CalculaterScreen() {
     val context = LocalContext.current
     var text by remember { mutableStateOf("2") }
     var text2 by remember { mutableStateOf("5") }

@@ -54,6 +54,7 @@ fun MyTopAppBar(navController: NavHostController) {
 
             TheDropDownMenu(navController)
         },
+
         actions = {
             IconButton(onClick = {
                 shouldShowDialog = true
@@ -67,6 +68,8 @@ fun MyTopAppBar(navController: NavHostController) {
 
         )
 }
+
+
 private fun showToast(context: Context, message: String) {
     Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
 }

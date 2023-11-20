@@ -30,6 +30,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import honghp.android.compose.R
+
 //import rocklike.compose.weather.calcBaseDateAndTime
 
 
@@ -42,7 +43,7 @@ fun HomeScreen() {
             .background(color = Color.DarkGray)
             .wrapContentSize(Alignment.Center)
     ) {
-        Image(painter = nabi, contentDescription = "3",Modifier.size(350.dp,350.dp))
+        Image(painter = nabi, contentDescription = "3", Modifier.size(350.dp, 350.dp))
     }
 }
 
@@ -55,16 +56,16 @@ data class Weather(
 
 //하늘상태(SKY) 코드 : 맑음(1), 구름많음(3), 흐림(4)
 @Composable
-fun FavouriteScreen() {
+fun WeatherScreen() {
     val context = LocalContext.current
 //    var lst = remember { mutableStateListOf<Weather>() }
     val lst = rememberSaveable { mutableStateOf(listOf<Weather>()) }
     val fetched = rememberSaveable { mutableStateOf(false) }
 
-    LaunchedEffect(fetched.value){
-        if(!fetched.value){
+    LaunchedEffect(fetched.value) {
+        if (!fetched.value) {
             fetched.value = true
-            callWeatherApi(lst,context)
+            callWeatherApi(lst, context)
         }
     }
 
@@ -82,7 +83,7 @@ fun FavouriteScreen() {
                 Toast.makeText(context, "호출 시작.", Toast.LENGTH_SHORT).show()
                 Log.i("홍", "버튼 클릭함. $context")
 //                lst.value.clear()
-                callWeatherApi(lst,context)
+                callWeatherApi(lst, context)
             }) {
                 Text(text = "새로고침")
             }
@@ -104,7 +105,9 @@ fun FavouriteScreen() {
                         modifier = Modifier.width(60.dp)
                     )
                     Text(
-                        text = lst.value[lst2].temp.toString() + "c", maxLines = 1, fontSize = 20.sp,
+                        text = lst.value[lst2].temp.toString() + "c",
+                        maxLines = 1,
+                        fontSize = 20.sp,
                         modifier = Modifier.width(60.dp)
                     )
 //                    Text(
@@ -138,6 +141,7 @@ fun FavouriteScreen() {
         }
     }
 }
+
 fun callWeatherApi(lst: MutableState<List<Weather>>, context: Context) {
     requestWeatherApi { success, r, ex ->
 //        Log.i("홍", "$success => ${r} ${r?.response?.body?.items?.item?.size} $ex")
@@ -159,10 +163,10 @@ fun callWeatherApi(lst: MutableState<List<Weather>>, context: Context) {
                     it.fcstValue.toInt(),
                     first,
                 )
-            }
 
+            }
         if (list2 != null) {
-            lst.value=list2
+            lst.value = list2
             Toast.makeText(context, "불러옴 (갯수:${lst.value.size})", Toast.LENGTH_SHORT).show()
         }
     }

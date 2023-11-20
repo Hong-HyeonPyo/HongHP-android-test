@@ -12,11 +12,11 @@ fun NavHostContainer(navController: NavHostController) {
             HomeScreen()
         }
         composable(ContentsMapper.Weather.route) {
-            FavouriteScreen()
+            WeatherScreen()
         }
 //        composable(ContentsMapper.Notification.route) {
         composable("notification_screen") {
-            rPtksrl()
+            CalculaterScreen()
         }
         composable("cat_screen") {
             CatScreen()
