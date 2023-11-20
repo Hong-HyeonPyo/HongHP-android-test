@@ -134,7 +134,7 @@ private fun requestWeatherApi(
         override fun onFailure(call: Call<WeatherResult>, t: Throwable) {
             println("== exception : $t ")
             t.printStackTrace()
-            action(false, null, null)
+            action(false, null, t)
         }
     })
 }
