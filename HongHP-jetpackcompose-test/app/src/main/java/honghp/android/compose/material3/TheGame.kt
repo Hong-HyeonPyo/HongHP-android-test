@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
@@ -39,7 +40,6 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun GameScreen() {
-
     var selectedIdx by remember { mutableStateOf(-1) }
     var vv by remember { mutableStateOf(true) }
     val idxList = remember { mutableStateListOf<Int>(*List(9, { it }).toTypedArray()) }
@@ -58,7 +58,6 @@ fun GameScreen() {
         Log.i("hong", "initIdx() 호출")
         selectedIdx = selectedIdx + 10
     }
-
     Column {
         RandomizeButton(idxList, { s: Boolean -> setSuccess(s) }) {  initIdx() }
 
@@ -68,7 +67,6 @@ fun GameScreen() {
             { s: Boolean -> setSuccess(s) },
             { idx: Int -> setSelectedIdx(idx) }
         )
-
         if (isSuccess) {
             Text(
                 text = "성공 !!", textAlign = TextAlign.Center,
@@ -95,10 +93,7 @@ fun makeRandomList(idxList: SnapshotStateList<Int>) {
             }
         }
     }
-
 }
-
-
 @Composable
 fun RandomizeButton(
     idxList: SnapshotStateList<Int>,
@@ -131,7 +126,6 @@ fun RandomizeButton(
             }) {
             Text("초기화", fontSize = 20.sp)
         }
-
     }
 }
 
@@ -154,7 +148,6 @@ fun onClickBox(
             }
             idxList[convertMatrixToIdx(currMaxtrix)] = 8
         }
-
         if (holeMaxtrix.first > currMaxtrix.first) {
             for (pos in holeMaxtrix.first - 1 downTo currMaxtrix.first) {
                 replace(Pair(pos, currMaxtrix.second), 1, 0, idxList)
@@ -162,7 +155,6 @@ fun onClickBox(
             idxList[convertMatrixToIdx(currMaxtrix)] = 8
         }
     }
-
     if (holeMaxtrix.first == currMaxtrix.first) {
         // x좌표 비교
         if (holeMaxtrix.second < currMaxtrix.second) {
@@ -171,7 +163,6 @@ fun onClickBox(
             }
             idxList[convertMatrixToIdx(currMaxtrix)] = 8
         }
-
         if (holeMaxtrix.second > currMaxtrix.second) {
             for (pos in holeMaxtrix.second - 1 downTo currMaxtrix.second) {
                 replace(Pair(currMaxtrix.first, pos), 0, 1, idxList)
@@ -179,8 +170,6 @@ fun onClickBox(
             idxList[convertMatrixToIdx(currMaxtrix)] = 8
         }
     }
-
-
     // 순서대로 맞았으면 success를 외침
     var success = idxList.filterIndexed { idx, elem -> idx != elem }.firstOrNull() == null
     if (success) {

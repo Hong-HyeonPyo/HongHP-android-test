@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter
 
 
 const val SERVICE_KEY =
-    "7O6jz/WpnA9lp2n3YIOmEpAAQfU1wegfAbbsGUYS/IvLI4+W+TvfU8OLmXCSL0BRIkZXoZxa6ha+6bBLV5wUbw==";
+    "fksdflasdkfqwkfqwkfqwlelkadkfaskdfkqfklqwekwqlerkqwerkwelrkqw=";
 
 interface WeatherApi {
     @GET("/1360000/VilageFcstInfoService_2.0/getVilageFcst")
@@ -124,7 +124,7 @@ private fun requestWeatherApi(
         base_date = baseDate, base_time = baseTime,
     )
     call.enqueue(object : Callback<WeatherResult> {
-        override fun onResponse(
+        override fun onResponse(//api
             call: Call<WeatherResult>,
             response: Response<WeatherResult>
         ) {
